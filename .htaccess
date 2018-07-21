@@ -1,0 +1,11 @@
+RewriteEngine On
+Options -indexes
+Options +FollowSymLinks
+ErrorDocument 404 404
+RewriteCond %{SCRIPT_FILENAME} !-d
+RewriteCond %{SCRIPT_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !\.css
+
+RewriteRule ^([a-zA-Z0-9\/]+)/([a-zA-Z0-9\/]+)/([a-zA-Z0-9\/]+)$ index.php?view=$1&action=$2&param=$3 [L]
+RewriteRule ^([a-zA-Z0-9\/]+)/([a-zA-Z0-9\/]+)$ index.php?view=$1&action=$2 [L]
+RewriteRule ^([a-zA-Z0-9\-\_\/]+)$ index.php?view=$1 [L]
